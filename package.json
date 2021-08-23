@@ -1,0 +1,15 @@
+{
+  "name": "wasa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wasa.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "venom-bot": "^3.0.21"
+  }
+}
