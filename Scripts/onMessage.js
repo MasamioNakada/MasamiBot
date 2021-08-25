@@ -3,12 +3,6 @@ const fs = require('fs');
 const mime = require('mime-types')
 
 exports.message = async  function (message){
-  const buttons = [
-            
-    {buttonId: 'id1', buttonText: {displayText: 'Text of Button 1'}, type: 1},
-    {buttonId: 'id2', buttonText: {displayText: 'Text of Button 2'}, type: 1},
-    {buttonId: 'id3', buttonText: {displayText: 'Text of Button 3'}, type: 1}
-]
   if (message.body.toLowerCase().includes('masamibot') || message.body === '/start' && message.isGroupMsg === false) {
     gclient
       .sendText(message.from, '👋 Hola soy Plaguebot🤖 en qué te puedo ayudar? (Este bot es una beta) \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
