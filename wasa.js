@@ -25,13 +25,14 @@ async function start(client) {
     
       var onMessagee = require('./Scripts/onMessage')
     onMessagee.message(message)
+    
+    
+    
 
 
-
-
-
-
-
+      
+  })
+}
 
 
 
