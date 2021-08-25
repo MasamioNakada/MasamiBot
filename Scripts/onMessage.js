@@ -11,7 +11,7 @@ exports.message = async  function (message){
 ]
   if (message.body.toLowerCase().includes('masamibot') || message.body === '/start' && message.isGroupMsg === false) {
     gclient
-      .sendText(message.from, '👋 Hola soy MasamiBot🤖 en qué te puedo ayudar? \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
+      .sendText(message.from, '👋 Hola soy Plaguebot🤖 en qué te puedo ayudar? (Este bot es una beta) \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
       .then((result) => {
         console.log('Result: ', result); //return object success
       })
