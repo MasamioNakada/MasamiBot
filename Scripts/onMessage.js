@@ -61,7 +61,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     
     
   }else if(message.body.toLowerCase().includes('data') && message.isGroupMsg === false){
-    gclient.sendText(message.from,'Escriba su escuela\n▪️*Física*\n▫️*Matemática*' )
+    gclient.sendText(message.from,'Escriba su escuela\n▪️ *Física*\n▫️ *Matemática*' )
   
     
   }else if (message.body.toLowerCase() === 'fisica'||message.body.toLowerCase() === 'física' && message.isGroupMsg === false){
@@ -197,7 +197,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/parcialmn.pdf','','')
 
   }else if (message.body.toLowerCase() === 'matematica'||message.body.toLowerCase() === 'matemática' && message.isGroupMsg === false){
-    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Tercero ciclo = *3f*\n🔹Cuarto ciclo = *4f*\n🔹Quinto ciclo = *5f*\n🔹Octavo ciclo = *8f*')
+    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Tercero ciclo = *3m*\n🔹Cuarto ciclo = *4m*\n🔹Quinto ciclo = *5m*\n🔹Octavo ciclo = *8m*')
     
   }else if (message.body === '3m'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Física 2 = *Mfisica2*')
