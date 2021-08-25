@@ -116,7 +116,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-parcial-lpc.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-final-lpc.pdf','','')
 
-  }else if (message.body.toLowerCase === 'fcalculo2' && message.isGroupMsg === false){
+  }else if (message.body.toLowerCase().includes('fcalculo2') && message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *8* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/2020a-calculo-ii-examen-parcial.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-3-2018b-calculo-ii.pdf','','')
@@ -128,9 +128,9 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-1-2018a-calculo-ii.pdf','','')
 
   }else if (message.body === '3f' && message.isGroupMsg === false){
-    await gclient.sendText(message.from,'Eliga el curso:\n🔸Fisica3 =*Ffisica3*\n🔸Analisis Vectorial y Tensorial = *Ftensorial*\n🔸Ecuaciones Diferenciales = *Fedo*')
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Fisica3 = *Ffisica2*\n🔸Analisis Vectorial y Tensorial = *Ftensorial*\n🔸Ecuaciones Diferenciales = *Fedo*')
 
-  }else if (message.body.toLowerCase === 'ffisica2' && message.isGroupMsg === false){
+  }else if (message.body.toLowerCase().includes('ffisica2') && message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *5* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.wordpress.com/2021/08/20/fisica-ii-examen-final-2020a/','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/2020-a-fisica-ii-iv-practica-calificada.pdf','','')
@@ -138,7 +138,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/pc2-f2-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/pc1-f2-2020a-1.pdf','','')
 
-  }else if (message.body.toLowerCase() === 'Ftensorial' && message.isGroupMsg === false){
+  }else if (message.body.toLowerCase().includes('ftensorial') && message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *10* Documentos.... (son un montón xd)')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-tensorial-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-3.pdf','','')
@@ -228,7 +228,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
   }else if (message.body === '8m'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Ecuaciones Diferenciables Parciales = *Medp*')
 
-  }else if (message.body.toLowerCase() === 'medo'&& message.isGroupMsg === false){
+  }else if (message.body.toLowerCase() === 'medp'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *1* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/pc2.pdf','','')
 
