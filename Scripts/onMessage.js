@@ -5,9 +5,9 @@ const mime = require('mime-types')
 
 exports.message = async  function (message){
 
-  if (message.body.toLowerCase().includes('plaguebot') || message.body === '/start' && message.isGroupMsg === false) {
+  if (message.body.toLowerCase().includes('ronderobot') || message.body === '/start' && message.isGroupMsg === false) {
     gclient
-      .sendText(message.from, '👋 Hola soy Plaguebot🤖 en qué te puedo ayudar? (Este bot es una beta) \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
+      .sendText(message.from, '👋 Hola soy RonderoBot🤖 en qué te puedo ayudar? (Este bot es una beta) \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
       .then((result) => {
         console.log('Result: ', result); //return object success
       })
