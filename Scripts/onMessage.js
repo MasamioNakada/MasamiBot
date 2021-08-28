@@ -1,9 +1,11 @@
-
 const fs = require('fs');
 const mime = require('mime-types')
 
+
+
 exports.message = async  function (message){
-  if (message.body.toLowerCase().includes('masamibot') || message.body === '/start' && message.isGroupMsg === false) {
+
+  if (message.body.toLowerCase().includes('plaguebot') || message.body === '/start' && message.isGroupMsg === false) {
     gclient
       .sendText(message.from, '👋 Hola soy Plaguebot🤖 en qué te puedo ayudar? (Este bot es una beta) \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
       .then((result) => {
@@ -25,10 +27,11 @@ Community - Tienes alguna idea para mejorar nuestro bot, todo es posible con pro
     .catch((erro) => {
       console.error('Error when sending: ', erro); //return object error
     });
-
+  }else if (message.body.toLowerCase().includes('bot idiota')){
+    await gclient.sendText(message.from,'Que me haz dicho imbecil? , envíame otra vez el comando 😤')
   }else if(message.body.toLowerCase().includes('about') && message.isGroupMsg === false) {
     gclient
-    .sendText(message.from, `MasamiBot🤖es un proyecto de automatización desarrollado en JavaScrip con el framework de Node.js.
+    .sendText(message.from, `Plague Bot🤖es un proyecto de automatización desarrollado en JavaScrip con el framework de Node.js.
 Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo y dedicacion para terminar el bot.\n\n_*Masami Nakada*_`)
     .then((result) => {
       console.log('Result: ', result); //return object success
@@ -38,20 +41,19 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
       });
 
   }else if(message.body.toLowerCase().includes('contact') && message.isGroupMsg === false){
-    gclient
-    .sendText(message.from,`*Persona 1* : https://api.whatsapp.com/send?phone=51935629320%20&text=Hola%20!%20tengo%20una%20consulta%20academica
-*Persona 2* :https://api.whatsapp.com/send?phone=51980695583%20&text=Hola%20!%20tengo%20una%20consulta%20academica
-*Persona 3* :https://api.whatsapp.com/send?phone=--numero--%20&text=Hola%20!%20tengo%20una%20consulta%20academica `)
+    await gclient.sendContactVcard(message.from , '51935629320@c.us', 'Samuel Saenz')
+    await gclient.sendContactVcard(message.from , '51980695583@c.us', 'Adrian Anton')
+    await gclient.sendContactVcard(message.from , '51919130984@c.us', 'Yasser Gonzales')
     .then((result) => {
       console.log('Result: ', result); //return object success
     })
     .catch((erro) => {
       console.error('Error when sending: ', erro); //return object error
     });    
-
+    
   }else if(message.body.toLowerCase().includes('community') && message.isGroupMsg === false){
-    gclient.sendText(message.from,`Genial🍭. Qué te funcionalidad te gustaría ver en MasamiBot🤖🥳\n
-Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
+    gclient.sendText(message.from,`Genial🍭.\nQué te funcionalidad te gustaría ver en MasamiBot🤖🥳, `);
+    gclient.sendContactVcard(message.from, '51952841852@c.us', 'MasamioNakada')
     
     
   }else if(message.body.toLowerCase().includes('data') && message.isGroupMsg === false){
@@ -59,7 +61,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
   
     
   }else if (message.body.toLowerCase() === 'fisica'||message.body.toLowerCase() === 'física' && message.isGroupMsg === false){
-    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Primer ciclo = *1f*\n🔹Segundo ciclo = *2f*\n🔹Tercero ciclo = *3f*\n🔹Cuarto ciclo = *4f*')
+    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Primer ciclo = *1f*\n🔹Segundo ciclo = *2f*\n🔹Tercero ciclo = *3f*\n🔹Cuarto ciclo = *4f*\n🔹Quinto ciclo = *5f*')
 
   }else if (message.body === '1f'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Química = *Fquimica* \n🔸Complemento Matemático = *Fcomplemento*\n🔸Cálculo 1 = *Fcalculo1*')
@@ -81,15 +83,14 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/2020a-examen-parcial-complemento.pdf','Examen Parcial 2020a','Examen Parcial 2020a')
     
   }else if (message.body.toLowerCase().includes('fcalculo1') && message.isGroupMsg === false){
-    await gclient.sendText(message.from,'Cargando *8* Documentos....⏳')
+    await gclient
+    .sendText(message.from,'Cargando *8* Documentos....⏳')        
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-3-2020a-calculo-i.pdf','','Práctica Calificada 3 2020a')
-    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-2-2020a-calculo-i.pdf','','Práctica Calificada 2 2020a')
-    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-1-2020a-calculo-i.pdf','','Práctica Calificada 1 2020a')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-3-2017b-calculo-i.pdf','','Práctica Calificada 3 2017b')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-2-2017b-calculo-i.pdf','','Práctica Calificada 2 2017b')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-1-2017b-calculo-i.pdf','','Práctica Calificada 1 2017b')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-final-2017b-calculo-i.pdf','','Examen Final 2017b')
-    await gclient.sendFile(message.from,'https://examenesfcnm.wordpress.com/2021/08/04/examen-parcial-2017b/','','Examen Parcial 2017b')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-parcial-2017b-calculo-i.pdf','','Examen Parcial 2017b')
 
   }else if (message.body === '2f' && message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Fisica = *Ffisica1*\n🔸Programación = *Fprogramacion*\n🔸Calculo2 = *Fcalculo2*')
@@ -133,7 +134,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/pc1-f2-2020a-1.pdf','','')
 
   }else if (message.body.toLowerCase().includes('ftensorial') && message.isGroupMsg === false){
-    await gclient.sendText(message.from,'Cargando *10* Documentos.... (son un montón xd)')
+    await gclient.sendText(message.from,'Cargando *31* Documentos.... (son un montón xd)')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-tensorial-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-3.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/practica-calificada-2.pdf','','')
@@ -169,12 +170,13 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/2017a-pc2.pdf','','')
 
   }else if (message.body.toLowerCase() === 'fedo'  && message.isGroupMsg === false){
+    
     await gclient.sendText(message.from,'Cargando *2* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-iedo-2020b.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ep-iedo-2020b.pdf','','')
 
   }else if (message.body === '4f'&& message.isGroupMsg === false){
-    await gclient.sendText(message.from,'Eliga el curso:\n🔸Metodos Matemáticos = *Fmm1*\n🔸Métodos Numéricos = *Fnumericos*')
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Metodos Matemáticos = *Fmm1*\n🔸Métodos Numéricos = *Fnumericos*\n🔸Termodinámica = *Ftermodinamica*')
 
   }else if (message.body.toLowerCase().includes('fmm1') && message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *6* Documentos....⏳')
@@ -190,35 +192,80 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/finalmn.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/parcialmn.pdf','','')
 
+  }else if (message.body.toLowerCase().includes('ftermodinamica') && message.isGroupMsg === false){
+    
+    await gclient.sendText(message.from,'Cargando *3* Documentos....⏳')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-parcial-termodinamica-2021a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-sustitutorio-termodinamica-2020-b.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-final-termodinamica-2020-b.pdf','','')
+
+  }else if (message.body === '5f'&& message.isGroupMsg === false){
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Mecánica Clasica = *Fclasica*')
+
+  }else if (message.body.toLowerCase().includes('ftermodinamica') && message.isGroupMsg === false){
+    
+    await gclient.sendText(message.from,'Cargando *6* Documentos....⏳')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/mecanica-clasica-examen-sustitutorio-2020a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-mc-2020b.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-mc-2020a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ef-mc-2019b.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/ep-mc-2020a.pdf','','')
+
   }else if (message.body.toLowerCase() === 'matematica'||message.body.toLowerCase() === 'matemática' && message.isGroupMsg === false){
-    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Tercero ciclo = *3m*\n🔹Cuarto ciclo = *4m*\n🔹Quinto ciclo = *5m*\n🔹Octavo ciclo = *8m*')
+    gclient.sendText(message.from,'Elija el ciclo (escriba la palabra que está en negrita):\n🔹Tercero ciclo = *3m*\n🔹Cuarto ciclo = *4m*\n🔹Quinto ciclo = *5m*\n🔹Sexto ciclo = *6m*\n🔹Octavo ciclo = *8m*')
     
   }else if (message.body === '3m'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Física 2 = *Mfisica2*')
     
   }else if (message.body.toLowerCase() === 'mfisica2'&& message.isGroupMsg === false){
+    
     await gclient.sendText(message.from,'Cargando *3* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/exam-final-mat-f-ii-fcnm.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/exam-parc-f-ii-2020a-matem.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/2ra-pc-fisica-i-fcnm-unac-1.pdf','','')
 
+  }else if (message.body === '6m'&& message.isGroupMsg === false){ 
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Medida e Integracion = *Mmedida*')
+   
+  }else if (message.body.toLowerCase() === 'mmedida'&& message.isGroupMsg === false){
+    
+    await gclient.sendText(message.from,'Cargando *1* Documentos....⏳')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/medida-de-integracion-pc1-2019b.pdf','','')
+
   }else if (message.body === '4m'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Estructuras Algebraicas 1 = *Mestructuras1*')
 
+
   }else if (message.body.toLowerCase() === 'mestructuras1'&& message.isGroupMsg === false){
+    
     await gclient.sendText(message.from,'Cargando *3* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/estructuras-algebraicas-i-pc2-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/estructuras-algebraicas-i-pc1-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/estructuras-algebraicas-i-es-2020a.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/estructuras-algebraicas-i-ep-2020a.pdf','','')
   }else if (message.body === '5m'){
-    await gclient.sendText(message.from,'Eliga el curso:\n🔸Ecuaciones Diferenciables Ordinarias = *Medo*')
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Ecuaciones Diferenciables Ordinarias = *Medo*\n🔸Analisis Real 2 = *Mreal2*')
 
   }else if (message.body.toLowerCase() === 'medo'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Cargando *2* Documentos....⏳')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-sustitutorio-ied.pdf','','')
     await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/examen-final.docxied.pdf','','')
 
+  }else if (message.body.toLowerCase() === 'mreal2'&& message.isGroupMsg === false){  
+    
+    await gclient.sendText(message.from,'Cargando *5* Documentos....⏳')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-ef-2021a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-ep-2021a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-pc1-2020a.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-pc3-2019b.pdf','','')
+    await gclient.sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-pc1-2019b.pdf','','')
+
+  }else if (message.body === '6m'){
+    await gclient.sendText(message.from,'Eliga el curso:\n🔸Analisis Real 2 = *Mreal2*')
+    await gclient.sendText(message.from,'Cargando *1  * Documentos....⏳')
+    await gclient  
+    .sendFile(message.from,'https://examenesfcnm.files.wordpress.com/2021/08/analisis-real-ii-pc1-2019b.pdf')
+    
   }else if (message.body === '8m'&& message.isGroupMsg === false){
     await gclient.sendText(message.from,'Eliga el curso:\n🔸Ecuaciones Diferenciables Parciales = *Medp*')
 
@@ -236,7 +283,7 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     const fileName = `Sticker${message.from}.${mime.extension(message.mimetype)}`;
     await fs.writeFile(fileName, buffer, (err) => {
       if (err) return console.log(err);
-      console.log('Hello World > helloworld.txt');
+      console.log('No se envió stickers');
     });
 
     await gclient
@@ -254,9 +301,16 @@ Escribemos al https://api.whatsapp.com/send?phone=51952841852%20&text=Hola`)
     })
     .catch((erro) => {
       console.error('Error when sending: ', erro); //return object error
-    });0
+    });
 
+  }else if (message.body.toLowerCase() === 'ping') {
+    gclient.sendText(message.from, 'Pong')
 
-
+  }else if (message.body == '/🤔') {
+    if (Math.round(Math.random()) == 1) {
+      gclient.sendText(message.from, 'Yes')
+    } else {
+      gclient.sendText(message.from, 'No')
+    }
   }
 }
