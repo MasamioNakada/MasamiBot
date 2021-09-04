@@ -5,7 +5,7 @@ const mime = require('mime-types')
 
 exports.message = async  function (message){
 
-  if (message.body.toLowerCase().includes('ronderobot') || message.body === '/start' && message.isGroupMsg === false) {
+  if (message.body.toLowerCase().includes('ronderobot') || message.body === '/start' && message.isGroupMsg === True) {
     gclient
       .sendText(message.from, '👋 Hola soy RonderoBot🤖 en qué te puedo ayudar?  \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
       .then((result) => {
@@ -14,7 +14,7 @@ exports.message = async  function (message){
       .catch((erro) => {
         console.error('Error when sending: ', erro); //return object error
       });
-  }else if (message.body.toLowerCase().includes('help') && message.isGroupMsg === false){
+  }else if (message.body.toLowerCase().includes('help') && message.isGroupMsg === true){
     gclient
     .sendText(message.from,`Data - Acceda a nuestra base de datos, donde tenemos exámenes y mucho más.\n
 Contact - ¿Tiene alguna consulta académica?. Contáctese para que el centro federado pueda ayudarlo.\n
