@@ -34,7 +34,7 @@ async function start(client) {
   })
 }
 
-
+delete require.cache[require.resolve('./Script/onMessage.js')]
 
 
 
