@@ -317,14 +317,14 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
     
   }else if ( message.body.toLowerCase().startsWith('add')){
     addNumber = message.body.substring(message.body.indexOf('@') + 1)
-    fs.appendFileSync('Add.txt', message.from + ' ' + addNumber + '@c.us\n')
-    gclient.sendMentioned(message.from, 'add @' + addNumber + '!', [addNumber])
+    await fs.appendFileSync('Add.txt', message.from + ' ' + addNumber + '@c.us\n')
+    await gclient.sendMentioned(message.from, 'Add @' + addNumber + '!', [addNumber])
     await gclient.addParticipant(message.from, addNumber + '@c.us')
     
   }else if (message.body.toLowerCase().startsWith('ban') && message.author == 51913875237 + '@c.us' && message.author == 51952841852 + '@c.us'){
     bannedNumber = message.body.substring(message.body.indexOf('@') + 1)
-    fs.appendFileSync('ban.txt', message.from + ' ' + bannedNumber + '@c.us\n')
-    gclient.sendMentioned(message.from, 'Banned @' + bannedNumber + '!', [bannedNumber])
+    await fs.appendFileSync('ban.txt', message.from + ' ' + bannedNumber + '@c.us\n')
+    await gclient.sendMentioned(message.from, 'Banned @' + bannedNumber + '!', [bannedNumber])
     await gclient.removeParticipant(message.from, bannedNumber + '@c.us')
     
   }else if (message.body.toLowerCase("📍")){
