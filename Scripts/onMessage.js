@@ -327,7 +327,7 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
     await gclient.sendMentioned(message.from, 'Banned @' + bannedNumber + '!', [bannedNumber])
     await gclient.removeParticipant(message.from, bannedNumber + '@c.us')
     
-  }else if (message.body.toLowerCase("📍")){
+  }else if (message.body.toLowerCase("location")){
     await gclient.sendLocation(message.from, '-12.062160', '-77.117738', 'En tu corazón bebe')
   }
 }
