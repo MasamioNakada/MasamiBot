@@ -306,11 +306,28 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
   }else if (message.body.toLowerCase() === 'ping') {
     gclient.sendText(message.from, 'Pong')
 
-  }else if (message.body == '/🤔') {
+  }else if (message.body == '🤔') {
     if (Math.round(Math.random()) == 1) {
-      gclient.sendText(message.from, 'Yes')
+      await gclient.sendText(message.from, 'Sos Gay')
     } else {
-      gclient.sendText(message.from, 'No')
+      await gclient.sendText(message.from, 'Sos Macho')
     }
+  }else if (message.body.toLowerCase()==='tupu'){
+    await gclient.sendText(message.from,'tamdre')
+    
+  }else if ( message.body.toLowerCase().startsWith('add')){
+    addNumber = message.body.substring(message.body.indexOf('@') + 1)
+    fs.appendFileSync('Add.txt', message.from + ' ' + addNumber + '@c.us\n')
+    gclient.sendMentioned(message.from, 'add @' + addNumber + '!', [addNumber])
+    await gclient.addParticipant(message.from, addNumber + '@c.us')
+    
+  }else if (message.body.toLowerCase().startsWith('ban') && message.author == 51913875237 + '@c.us' && message.author == 51952841852 + '@c.us'){
+    bannedNumber = message.body.substring(message.body.indexOf('@') + 1)
+    fs.appendFileSync('ban.txt', message.from + ' ' + bannedNumber + '@c.us\n')
+    gclient.sendMentioned(message.from, 'Banned @' + bannedNumber + '!', [bannedNumber])
+    await gclient.removeParticipant(message.from, bannedNumber + '@c.us')
+    
+  }else if (message.body.toLowerCase("📍")){
+    await gclient.sendLocation(message.from, '-12.062160', '-77.117738', 'En tu corazón bebe')
   }
 }
