@@ -322,7 +322,7 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
     await gclient.sendText(addNumber + '@c.us','Serás Añadido')
     await gclient.addParticipant(message.from, addNumber + '@c.us')
     
-  }else if (message.body.toLowerCase().startsWith('ban') && message.author == 51913875237 + '@c.us' && message.author == 51952841852 + '@c.us'){
+  }else if (message.body.toLowerCase().startsWith('ban') &&  message.author == 51952841852 + '@c.us'){
     const bannedNumber = message.body.substring(message.body.indexOf('@') + 1)
     await fs.appendFileSync('ban.txt', message.from + ' ' + bannedNumber + '@c.us\n')
     await gclient.sendMentioned(message.from, 'Banned @' + bannedNumber + '!', [bannedNumber])
