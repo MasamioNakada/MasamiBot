@@ -5,19 +5,19 @@ const mime = require('mime-types')
 
 exports.message = async  function (message){
 
-  if (message.body.toLowerCase().includes('ronderobot') || message.body === '/start' && message.isGroupMsg === True) {
+  if (message.body.toLowerCase().includes('masamibot') || message.body === 'start') {
     gclient
-      .sendText(message.from, '👋 Hola soy RonderoBot🤖 en qué te puedo ayudar?  \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
+      .sendText(message.from, '👋 Hola soy Masamibot🤖 en qué te puedo ayudar?  \nEscriba el comando _*Help*_ para ver la lista entera de comandos 😉')
       .then((result) => {
         console.log('Result: ', result); //return object success
       })
       .catch((erro) => {
         console.error('Error when sending: ', erro); //return object error
-      });
-  }else if (message.body.toLowerCase().includes('help') && message.isGroupMsg === true){
+      })
+  }else if (message.body.toLowerCase().includes('help')){
     gclient
-    .sendText(message.from,`Data - Acceda a nuestra base de datos, donde tenemos exámenes y mucho más.\n
-Contact - ¿Tiene alguna consulta académica?. Contáctese para que el centro federado pueda ayudarlo.\n
+    .sendText(message.from,`Data - Acceda a nuestra base de datos, donde tenemos exámenes y mucho más(este comando no gunciona en grupos).\n
+Contact - ¿Tiene alguna consulta académica?. Contáctese para que el centro federado pueda ayudarlo (este comando no gunciona en grupos).\n
 About - Para saber más de este bot.\n
 Community - Tienes alguna idea para mejorar nuestro bot, todo es posible con programacion.`)   
     .then((result) => {
@@ -29,7 +29,7 @@ Community - Tienes alguna idea para mejorar nuestro bot, todo es posible con pro
     });
   }else if (message.body.toLowerCase().includes('bot idiota')){
     await gclient.sendText(message.from,'Que me haz dicho imbecil? , envíame otra vez el comando 😤')
-  }else if(message.body.toLowerCase().includes('about') && message.isGroupMsg === false) {
+  }else if(message.body.toLowerCase().includes('about') ) {
     gclient
     .sendText(message.from, `Plague Bot🤖es un proyecto de automatización desarrollado en JavaScrip con el framework de Node.js.
 Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo y dedicacion para terminar el bot.\n\n_*Masami Nakada*_`)
@@ -40,7 +40,7 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
         console.error('Error when sending: ', erro); //return object error
       });
 
-  }else if(message.body.toLowerCase().includes('contact') && message.isGroupMsg === false){
+  }else if(message.body.toLowerCase().includes('contact') ){
     await gclient.sendContactVcard(message.from , '51935629320@c.us', 'Samuel Saenz')
     await gclient.sendContactVcard(message.from , '51980695583@c.us', 'Adrian Anton')
     await gclient.sendContactVcard(message.from , '51919130984@c.us', 'Yasser Gonzales')
@@ -319,6 +319,7 @@ Usamos el paquete wa-automate para generar un API interno como tambien esfuerzo 
     const addNumber = message.body.substring(message.body.indexOf('@') + 1)
     await fs.appendFileSync('Add.txt', message.from + ' ' + addNumber + '@c.us\n')
     await gclient.sendMentioned(message.from, 'Add @' + addNumber + '!', [addNumber])
+    await gclient.sendText(addNumber + '@c.us','Serás Añadido')
     await gclient.addParticipant(message.from, addNumber + '@c.us')
     
   }else if (message.body.toLowerCase().startsWith('ban') && message.author == 51913875237 + '@c.us' && message.author == 51952841852 + '@c.us'){
